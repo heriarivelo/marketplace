@@ -1,0 +1,88 @@
+  {% extends 'admin/base.html.twig' %}
+
+{% block title %}Dashboard product{% endblock %}
+
+{% block body %}
+ <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-bottom p-3">
+                <h5 class="modal-title" id="exampleModalLabel">Modifier le produit {{ product.name }}</h5>
+                {# <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" id="close-modal"><i
+                        class="uil uil-times fs-4 text-dark"></i></button> #}
+            </div>
+
+            <div class="modal-body p-3 pt-4">
+  {{ form_start(form)}}
+ <div class="row">
+     <div class="col-md-6">
+     <div class="d-grid me-md-4">
+     {{ form_widget(form.illustration) }}
+    </div>
+     </div>
+     <div class="col-md-6 mt-4 mt-sm-0">
+     <div class="row">
+     <div class="col-12">
+        <div class="mb-3">
+    {{ form_widget(form.name,{
+            'attr': {
+                'placeholder': 'Nom du produit *',
+            'class': 'form-control'
+            },
+            }) }}
+              </div>
+                                </div><!--end col-->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+     {{ form_widget(form.category) }}
+       </div>
+    </div><!--end col-->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+     {{ form_widget(form.prix,{
+            'attr': {
+                'placeholder': 'Prix *',
+            'class': 'form-control'
+            },
+            }) }}
+         </div>
+    </div><!--end col-->
+    <div class="col-12">
+        <div class="mb-3">
+     {{ form_widget(form.slug,{
+            'attr': {
+                'placeholder': 'Slug',
+            'class': 'form-control'
+            },
+            }) }}
+             </div>
+    </div><!--end col-->
+    <div class="col-12">
+        <div class="mb-3">
+     {{ form_widget(form.subtitle,{
+            'attr': {
+                'placeholder': 'Sous-titre',
+            'class': 'form-control'
+            },
+            }) }}
+         </div>
+    </div><!--end col-->
+    <div class="col-12">
+        <div class="mb-3">
+    {{ form_widget(form.description,{
+            'attr': {
+            'placeholder': 'Description',
+            'class': 'form-control'
+            },
+            }) }}
+     </div>
+    </div><!--end col-->
+    <button type="submit" class="btn btn-primary">Mettre a jour</button>
+    </div>
+     </div>
+    
+</div> 
+    </div>
+        </div>
+    </div>
+{{ form_end(form) }}
+{% endblock %}

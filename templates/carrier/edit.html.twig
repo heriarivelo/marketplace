@@ -1,0 +1,15 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edit Carrier{% endblock %}
+
+{% block body %}
+<main class="page-content bg-light">
+    <h1>Edit Carrier</h1>
+
+    {{ include('carrier/_form.html.twig', {'button_label': 'Update <span class="mdi mdi-update"></span>'}) }}
+
+    <a href="{{ path('app_carrier_index') }}">back to list</a>
+
+    {{ include('carrier/_delete_form.html.twig') }}
+</main>
+{% endblock %}

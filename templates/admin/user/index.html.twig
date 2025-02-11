@@ -1,0 +1,80 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+<main class="page-content bg-light">
+    <div class="container-fluid">
+        <div class="layout-specing">
+            <div class="d-md-flex justify-content-between">
+                <div>
+                    <h5 class="mb-0">Shop</h5>
+
+                    <nav aria-label="breadcrumb" class="d-inline-block mt-1">
+                        <ul class="breadcrumb breadcrumb-muted bg-transparent rounded mb-0 p-0">
+                            <li class="breadcrumb-item text-capitalize"><a href="index.html">Landrick</a></li>
+                            <li class="breadcrumb-item text-capitalize active" aria-current="page">Shop</li>
+                        </ul>
+                    </nav>
+                </div>
+
+                {# <div class="mt-4 mt-sm-0">
+                    <a class="btn btn-primary" href="{{ path('app_category_new') }}">Create new</a>
+                </div> #}
+
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12">
+                    {# <h5 class="mb-0">Most Viewed Products</h5> #}
+                    <h5 class="mb-0">Liste utilisateur</h5>
+                </div><!--end col-->
+            </div><!--end row-->
+            <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-2 row-cols-1 mt-4">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+               
+                {# <th>Password</th> #}
+                <th>Firstname</th>
+                <th>Lastname</th>
+                 <th>Email</th>
+                <th>Roles</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                
+                {# <td>{{ user.password }}</td> #}
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>
+                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {# <a href="{{ path('app_user_new') }}">Create new</a> #}
+    </div>
+        </div>
+    </div><!--end container-->
+    <!--end container-->
+
+    <!-- Footer Start -->
+    {% include 'admin/composant/footer.html.twig' %}
+</main>
+{% endblock %}

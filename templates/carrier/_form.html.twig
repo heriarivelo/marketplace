@@ -1,0 +1,28 @@
+{{ form_start(form) }}
+ <div class="col-6">
+        <div class="mb-3">
+    {{ form_widget(form.name,{
+            'attr': {
+                'placeholder': 'Nom du transport',
+            'class': 'form-control'
+            },
+            }) }}
+    </div>
+    <div class="mb-3">
+    {{ form_widget(form.description,{
+            'attr': {
+                'placeholder': 'Description...',
+            'class': 'form-control'
+            },
+            }) }}
+    </div>
+    <div class="mb-3">
+    {{ form_widget(form.price,{
+            'attr': {
+                'placeholder': 'Prix',
+            'class': 'form-control'
+            },
+            }) }}
+    </div></div>
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

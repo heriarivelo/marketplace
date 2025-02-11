@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico')}}" />
+    <link href="{{ asset('assets/libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="{{ asset('assets/css/bootstrap.css') }}" id="bootstrap-style" class="theme-opt" rel="stylesheet"
+        type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/libs/@iconscout/unicons/css/line.css') }}" type="text/css" rel="stylesheet" />
+    <!-- Style Css-->
+    <link href="{{ asset('assets/css/style.css') }}" id="color-opt" class="theme-opt" rel="stylesheet"
+        type="text/css" />
+    {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+
+    {% endblock %}
+
+
+
+    {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+
+<body>
+   
+   {% include 'composant/navbar.html.twig' %}
+    {% block body %}{% endblock %}
+    {% include 'composant/footer.html.twig' %}
+  
+</body>
+
+</html>
